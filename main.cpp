@@ -5,12 +5,12 @@
 #include <time.h>
 
 float x=200, y=-60;
-float x1 = 650, y1=20; //x2 = 750, y2 = 50, x3 = 950, y3 =-10, x4=1150, y4=-50, x5=1350, y5=-110;
+float x1 = 650, y1=20; 
 int score, exit1 = 1;
 
 void boy(float a, float b){
 
- glBegin(GL_POLYGON);//head
+ glBegin(GL_POLYGON);
  glColor3f(1, 1, 1);
 
  glVertex2f(20 + a, 230 + b);//head 1st co-ordinate(-x+y)
@@ -125,14 +125,7 @@ void boy(float a, float b){
  glVertex2f(37 + a, 230 + b);
  glEnd();
 
- /*glBegin(GL_LINE_STRIP);//mouth
- glColor3f(0, 0, 0);
- glVertex2f(28 + a, 228 + b);
- glVertex2f(30 + a, 225 + b);
- glVertex2f(32 + a, 228 + b);
- glEnd();*/
-
-
+ 
  glBegin(GL_POLYGON);//body
  glColor3f(.73, .36, .36);
  glVertex2f(18 + a, 215 + b);
@@ -428,14 +421,7 @@ void myDisplay()
  if (exit1 == 1)
  {
 
-  /*if(y<-120 || y>120)
-  {
-  printf("Y\n");
-  printf("%f\n",x);
-  printf("%f\n",x1);
-  printf("%f\n",y);
-  exit1 = 1;
-  }*/
+ 
   if(x1<=x+40 && x1>x+20 && y==y1-30)
   {
    printf("X1\n");
@@ -449,26 +435,17 @@ void myDisplay()
   if (score < 25)
   {
    x1 -= .5;
-   /*x2 -= .8;
-   x3 -= .9;
-   x4 -= 1;
-   x5 -= 1.1;*/
+   
   }
   if (score >= 20 && score < 50)
   {
    x1 -= 2.1;
-   /*x2 -= 1.3;
-   x3 -= 1.4;
-   x4 -= 1.5;
-   x5 -= 1.6;*/
+ 
   }
   if (score >= 50)
   {
    x1 -= 2.3;
-   /*x2 -= 1.8;
-   x3 -= 1.9;
-   x4 -= 2;
-   x5 -= 2.1;*/
+  
   }
 
   if (x1 < -500)
@@ -528,10 +505,6 @@ void myDisplay()
   }
   boy(x, y);
   box(x1, y1);
-  //box(x2, y2);
-  //box(x3, y3);
-  //box(x4, y4);
-  //box(x5, y5);
   glutSwapBuffers();
 
  }
@@ -605,11 +578,12 @@ void keyboards(unsigned char keys, int x4, int y4)
  {
   exit(-1);
  }
-
+//pause
  if(keys=='0')
  {
   exit1=2;
  }
+ //resume
  if(keys=='1')
  {
   exit1=1;
